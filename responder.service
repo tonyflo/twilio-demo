@@ -1,0 +1,13 @@
+[Unit]
+Description=Gunicorn instance to serve SMS/Voice responder
+After=network.target
+
+[Service]
+User=ttt
+Group=www-data
+WorkingDirectory=/home/ttt/responder
+Environment="PATH=/home/ttt/env/phone/bin"
+ExecStart=/home/ttt/env/phone/bin/gunicorn --workers 3 --bind unix:responder.sock -m 007 wsgi:app
+
+[Install]
+WantedBy=multi-user.target
