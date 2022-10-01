@@ -19,14 +19,19 @@ def sms():
 
 @app.route("/voice", methods=['POST'])
 def voice():
-    resp = VoiceResponse()
-    
-    audio = "Hello from Tony Teaches Tech. Subscribe then leave me a message."
-    resp.say(audio, voice='male')
-    resp.record()
-    resp.hangup()
+    response = VoiceResponse()
+    say = Say('Hi', voice='Polly.Emma')
+    say.break_(strength='x-weak', time='100ms')
+    say.p('Welcome to the Tony Teaches Tech voice mail box.')
+    say.p('Please subscribe, then leave me a message.')
+    say.break_(strength='x-weak', time='50ms')
+    say.p('Goodbye!')
 
-    return str(resp)
+    response.append(say)
+    response.record()
+    response.hangup()
+
+    return str(response)
 
 
 @app.route('/')
