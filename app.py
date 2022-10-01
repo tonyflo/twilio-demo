@@ -1,6 +1,6 @@
 from flask import Flask, request
 from twilio.twiml.messaging_response import MessagingResponse
-from twilio.twiml.voice_response import VoiceResponse
+from twilio.twiml.voice_response import VoiceResponse, Say
 
 app = Flask(__name__)
 
@@ -36,9 +36,12 @@ def voice():
 
 @app.route('/')
 def index():
-    return "Subscribe to Tony Teaches Tech!"
+    return """<p>Subscribe to
+    <a href='https://youtube.com/tonyteachestech/'>
+        Tony Teaches Tech</a>!</p>
+    """
 
 
 if __name__ == '__main__':
-    app.run(host='tonyboni.com', port=5000)
+    app.run(host='phone.tonyteaches.tech', port=5000)
 
