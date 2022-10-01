@@ -21,7 +21,7 @@ def sms():
 def voice():
     resp = VoiceResponse()
     
-    audio = "Hello from Tony Teaches Tech. Subscribe and leave a message."
+    audio = "Hello from Tony Teaches Tech. Subscribe then leave me a message."
     resp.say(audio, voice='male')
     resp.record()
     resp.hangup()
