@@ -31,7 +31,7 @@ def voice():
 
 @app.route('/')
 def index():
-    return 'Web App with Python Flask!'
+    return "Subscribe to Tony Teaches Tech!"
 
 
 if __name__ == '__main__':
